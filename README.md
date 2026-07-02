@@ -57,7 +57,7 @@ The project is bundled with an automated container architecture via Docker. You 
 Should you need to change configurations or link up an external viewer, the active port parameters defined within the infrastructure layout are:
 * **Nginx Webserver Port:** `8081` (Mapped to internal legacy port `80`)
 * **MySQL Database Port:** `3307` (Mapped to internal container port `3306`)
-* **Database Name:** `user_admin_db`
+* **Database Name:** `users_manager_db`
 * **Database Username:** `db_admin`
 * **Database Password:** `db_password`
 
