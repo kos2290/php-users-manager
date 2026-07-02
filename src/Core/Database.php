@@ -6,16 +6,29 @@ namespace App\Core;
 use PDO;
 use PDOException;
 
+/**
+ * Class Database
+ * @package App\Core
+ */
 class Database
 {
+    /**
+     * @var PDO|null
+     */
     private static ?PDO $instance = null;
 
+    /**
+     * Database constructor.
+     */
     private function __construct() {}
 
+    /**
+     * @return PDO
+     */
     public static function getInstance(): PDO
     {
         if (self::$instance === null) {
-            // Fetch configuration from environment variables defined in docker-compose
+            // Fetch configuration from environment variables
             $host = 'db';
             $db   = 'users_manager_db';
             $user = 'db_admin';
@@ -32,7 +45,7 @@ class Database
             try {
                 self::$instance = new PDO($dsn, $user, $pass, $options);
             } catch (PDOException $e) {
-                // Strict English messages for error handling demonstration
+                // Handle connection error
                 die("Database connection failed: " . $e->getMessage());
             }
         }

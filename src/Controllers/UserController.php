@@ -7,15 +7,29 @@ use App\Core\Request;
 use App\Core\Session;
 use App\Models\UserRepository;
 
+/**
+ * Class UserController
+ * @package App\Controllers
+ */
 class UserController
 {
+    /** @var UserRepository */
     private UserRepository $userRepository;
 
+    /**
+     * UserController constructor.
+     */
     public function __construct()
     {
         $this->userRepository = new UserRepository();
     }
 
+    /**
+     * Display a paginated list of users
+     *
+     * @param  Request $request
+     * @return void
+     */
     public function index(Request $request): void
     {
         $params = $request->getBody();
@@ -35,6 +49,12 @@ class UserController
         require_once __DIR__ . '/../Views/users/index.php';
     }
 
+    /**
+     * Display a single user
+     *
+     * @param  Request $request
+     * @return void
+     */
     public function view(Request $request): void
     {
         $id = (int)($request->getBody()['id'] ?? 0);
@@ -47,6 +67,12 @@ class UserController
         require_once __DIR__ . '/../Views/users/view.php';
     }
 
+    /**
+     * Show the user creation form
+     *
+     * @param  Request $request
+     * @return void
+     */
     public function create(Request $request): void
     {
         $errors = Session::get('validation_errors') ?? [];
@@ -56,6 +82,12 @@ class UserController
         require_once __DIR__ . '/../Views/users/create.php';
     }
 
+    /**
+     * Handle user creation form submission
+     *
+     * @param  Request $request
+     * @return void
+     */
     public function store(Request $request): void
     {
         $data = $request->getBody();
@@ -91,6 +123,12 @@ class UserController
         exit;
     }
 
+    /**
+     * Show the user edit form
+     *
+     * @param  Request $request
+     * @return void
+     */
     public function edit(Request $request): void
     {
         $id = (int)($request->getBody()['id'] ?? 0);
@@ -107,6 +145,12 @@ class UserController
         require_once __DIR__ . '/../Views/users/edit.php';
     }
 
+    /**
+     * Handle user edit form submission
+     *
+     * @param  Request $request
+     * @return void
+     */
     public function update(Request $request): void
     {
         $data = $request->getBody();
@@ -138,6 +182,12 @@ class UserController
         exit;
     }
 
+    /**
+     * Handle user deletion
+     *
+     * @param  Request $request
+     * @return void
+     */
     public function delete(Request $request): void
     {
         $id = (int)($request->getBody()['id'] ?? 0);

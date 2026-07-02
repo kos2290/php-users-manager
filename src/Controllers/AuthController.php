@@ -7,15 +7,29 @@ use App\Core\Request;
 use App\Core\Session;
 use App\Models\UserRepository;
 
+/**
+ * Class AuthController
+ * @package App\Controllers
+ */
 class AuthController
 {
+    /** @var UserRepository */
     private UserRepository $userRepository;
 
+    /**
+     * AuthController constructor.
+     */
     public function __construct()
     {
         $this->userRepository = new UserRepository();
     }
 
+    /**
+     * Show login form
+     *
+     * @param  Request $request
+     * @return void
+     */
     public function showLogin(Request $request): void
     {
         $error = Session::get('login_error');
@@ -27,6 +41,12 @@ class AuthController
         require_once __DIR__ . '/../Views/auth/login.php';
     }
 
+    /**
+     * Handle login form submission
+     *
+     * @param  Request $request
+     * @return void
+     */
     public function login(Request $request): void
     {
         $data = $request->getBody();
@@ -57,6 +77,11 @@ class AuthController
         exit;
     }
 
+    /**
+     * Handle logout
+     *
+     * @return void
+     */
     public function logout(): void
     {
         Session::destroy();

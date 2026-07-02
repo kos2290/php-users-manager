@@ -3,21 +3,47 @@ declare(strict_types=1);
 
 namespace App\Core;
 
+/**
+ * Class Router
+ * @package App\Core
+ */
 class Router
 {
+    /** @var array $routes */
     private array $routes = [];
 
-    // Accept both controller array syntax and standard anonymous functions
+    /**
+     * Handle GET requests
+     * Accept both controller array syntax and standard anonymous functions
+     *
+     * @param  string         $path
+     * @param  callable|array $callback
+     * @return void
+     */
     public function get(string $path, callable|array $callback): void
     {
         $this->routes['get'][$path] = $callback;
     }
 
+    /**
+     * Handle POST requests
+     * Accept both controller array syntax and standard anonymous functions
+     *
+     * @param  string         $path
+     * @param  callable|array $callback
+     * @return void
+     */
     public function post(string $path, callable|array $callback): void
     {
         $this->routes['post'][$path] = $callback;
     }
 
+    /**
+     * Resolve the current request
+     *
+     * @param  Request $request
+     * @return void
+     */
     public function resolve(Request $request): void
     {
         $path = $request->getPath();
