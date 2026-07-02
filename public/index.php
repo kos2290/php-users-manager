@@ -19,9 +19,6 @@ $router->get('/logout', [AuthController::class, 'logout']);
 
 // Dashboard & User Management Routes
 $router->get('/users', [UserController::class, 'index']);
-
-// Dashboard & User Management Routes
-$router->get('/users', [UserController::class, 'index']);
 $router->get('/users/view', [UserController::class, 'view']);
 $router->get('/users/create', [UserController::class, 'create']);
 $router->post('/users/create', [UserController::class, 'store']);
