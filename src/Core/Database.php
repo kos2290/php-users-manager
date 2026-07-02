@@ -5,6 +5,7 @@ namespace App\Core;
 
 use PDO;
 use PDOException;
+use App\Core\Env;
 
 /**
  * Class Database
@@ -29,10 +30,10 @@ class Database
     {
         if (self::$instance === null) {
             // Fetch configuration from environment variables
-            $host = 'db';
-            $db   = 'users_manager_db';
-            $user = 'db_admin';
-            $pass = 'db_password';
+            $host = Env::get('DB_HOST', 'db');
+            $db   = Env::get('DB_NAME', 'users_manager_db');
+            $user = Env::get('DB_USER', 'db_admin');
+            $pass = Env::get('DB_PASSWORD', 'db_password');
             $charset = 'utf8mb4';
 
             $dsn = "mysql:host=$host;dbname=$db;charset=$charset";

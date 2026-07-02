@@ -4,6 +4,9 @@ declare(strict_types=1);
 // Require Composer Autoloader
 require_once __DIR__ . '/../vendor/autoload.php';
 
+// Load Environment Variables
+\App\Core\Env::load(__DIR__ . '/../.env');
+
 use App\Core\Request;
 use App\Core\Router;
 use App\Controllers\AuthController;
