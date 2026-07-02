@@ -17,7 +17,7 @@ class Database
         if (self::$instance === null) {
             // Fetch configuration from environment variables defined in docker-compose
             $host = 'db';
-            $db   = 'user_manager_db';
+            $db   = 'users_manager_db';
             $user = 'db_admin';
             $pass = 'db_password';
             $charset = 'utf8mb4';

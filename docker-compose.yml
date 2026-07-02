@@ -26,7 +26,7 @@ services:
     container_name: php_users_manager_db
     environment:
       MYSQL_ROOT_PASSWORD: root_password
-      MYSQL_DATABASE: user_manager_db
+      MYSQL_DATABASE: users_manager_db
       MYSQL_USER: db_admin
       MYSQL_PASSWORD: db_password
     ports:

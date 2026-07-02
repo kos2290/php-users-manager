@@ -1,5 +1,5 @@
-CREATE DATABASE IF NOT EXISTS `user_manager_db`;
-USE `user_manager_db`;
+CREATE DATABASE IF NOT EXISTS `users_manager_db`;
+USE `users_manager_db`;
 
 -- Single table for all users with role flag
 CREATE TABLE IF NOT EXISTS `users` (
