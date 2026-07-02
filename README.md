@@ -66,3 +66,9 @@ Should you need to change configurations or link up an external viewer, the acti
 ## 💡 Functional Highlights Inside the Application
 * **Dynamic Role Control:** Fully functional implementation of administrative rights mapping via checkbox configurations within User Update workflows.
 * **Pagination & Directional Sorting:** Scalable listing engine fetching specific indexes natively (`LIMIT / OFFSET`) preventing memory leaks on heavy record arrays, featuring multi-column dynamic toggle sorting links.
+
+---
+## 🧪 Running Unit Tests
+All structural testing suites are handled via PHPUnit and isolated within the app container. Run them using:
+```bash
+docker exec -it php_users_manager_app ./vendor/bin/phpunit
